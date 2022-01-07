@@ -1,0 +1,13 @@
+name: GlobalVillagerCuring
+version: '${project.version}'
+main: me.gwodny.globalvillagercuring
+api-version: 1.18
+authors: [ gwodny ]
+description: Allows villager curing to apply to all players.
+commands:
+  setBestReputation:
+    description: Set's every player's positive reputaion values to the highest that already exists for each villager.
+    usage: /<command>
+  reputationQuery:
+    description: Highlights the nearest villager within five blocks of the sender and returns the five reputation values of that villager for the sender.
+    usage: /<command>
