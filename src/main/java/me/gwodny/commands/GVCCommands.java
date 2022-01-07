@@ -20,9 +20,14 @@ public class GVCCommands implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if(!(sender instanceof Player senderPlayer)) return false;
 
         if (cmd.getName().equalsIgnoreCase("setBestReputation")){
+
+            if(!sender.isOp()){
+                sender.sendMessage("You do not have permission to run this command");
+                return false;
+            }
+
             OfflinePlayer[] players = Bukkit.getOfflinePlayers();
 
             for (World world : Bukkit.getWorlds()) {
@@ -58,9 +63,17 @@ public class GVCCommands implements CommandExecutor {
                     }
                 }
             }
+
+            sender.sendMessage("Best reputations have been set");
+
         }
 
         else if (cmd.getName().equalsIgnoreCase("reputationQuery")){
+
+            if(!(sender instanceof Player senderPlayer)){
+                sender.sendMessage("Must be sent by a player");
+                return false;
+            }
 
             Villager villager = null;
 
